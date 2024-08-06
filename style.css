@@ -6,9 +6,9 @@ html {
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
     scroll-behavior: smooth;
-    background: radial-gradient(circle, #bfbff7, #260b5e);
 }
 
+/* intro */
 .intro-screen {
     position: fixed;
     top: 0;
@@ -75,7 +75,6 @@ html {
 
 /* Navigation Bar */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     padding: 10px 40px; /* Increase padding */
     position: fixed;
@@ -89,7 +88,6 @@ html {
     transition: background-color 0.3s ease, padding 0.3s ease; /* Smooth transition for background and padding */
 }
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 1); /* Opaque background when scrolled */
     padding: 5px 40px; /* Reduce padding when scrolled */
 }
 .navbar.hidden {
@@ -99,7 +97,6 @@ html {
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -123,17 +120,17 @@ html {
 }
 
 .nav-links a {
-    color: #333;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     padding: 8px 16px;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-links a:hover {
-    background-color: #007bff;
     color: #fff;
+    transform: scale(1.05); /* Slightly increase the size */
 }
 
 .nav-links li {
@@ -158,7 +155,108 @@ html {
     color: #ffffff; /* White text on hover */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
+    
+/* Responsive styles */
+@media (max-width: 768px) {
+    
+    .navbar {
+        padding: 10px 20px; /* Adjust padding for mobile */
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
+    .navbar .container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .nav-links a {
+        padding: 10px; /* Adjust padding for better touch targets */
+        text-align: center;
+    }
+
+/* Mobile menu toggle */
+.menu-btn {
+    display: block;
+    font-size: 24px;
+    color: #ffffff; /* Icon color */
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+}
+
+.menu-btn.clicked {
+    color: #ffffff; /* Change icon color */
+    transform: rotate(45deg); /* Rotate the icon */
+}
+
+/* FontAwesome icon styles */
+.menu-btn:before {
+    content: "\f0c9"; /* Default icon (bars) */
+    font-family: 'FontAwesome';
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+}
+
+.menu-btn.clicked:before {
+    content: "\f00d"; /* Change to "X" icon */
+}
+
+/* Mobile nav links */
+.nav-links {
+    display: none; /* Hide links by default on mobile */
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #333333; /* Dark background for visibility */
+    padding: 10px 0; /* Add some padding for spacing */
+}
+
+.nav-links.active {
+    display: flex; /* Show links when active */
+}
+
+/* Ensure text color is visible */
+.nav-links a {
+    color: #000000; /* White text color */
+    padding: 10px 16px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #000000; /* White text on hover */
+    transform: scale(1.05); /* Slightly increase the size */
+}
+
+/* Style for "My Resume" */
+.nav-links li:last-child a {
+    border: 1px solid #000000; /* White border */
+    background-color: #ffffff; /* Dark background */
+    color: #000000; /* White text color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Shadow */
+}
+
+.nav-links li:last-child a:hover {
+    background-color: #333333; /* White background on hover */
+    color: #ffffff; /* Dark text color on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+}
 
 /* Hero Section */
 .hero {

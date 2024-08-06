@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init({
         duration: 1000, // Duration of animation in milliseconds
     });
+            //toggle button
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+        
+            menuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuBtn.classList.toggle('clicked');
+            });
 
     // Contact items scroll behavior
     const contactItems = document.querySelectorAll(".contact-item");
