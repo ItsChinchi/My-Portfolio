@@ -268,6 +268,7 @@ html {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    padding: 0 20px; /* Padding for smaller screens */
 }
 
 .hero-content {
@@ -278,6 +279,7 @@ html {
     width: 100%;
     margin: 0 auto;
     position: relative;
+    transition: all 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .hero-photo {
@@ -285,30 +287,34 @@ html {
     display: flex;
     justify-content: flex-start; /* Align photo to the left */
     padding-right: 20px; /* Space between photo and text */
+    transition: all 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .hero-photo img {
     max-width: 70%; /* Make the photo slightly smaller */
     border-radius: 8px;
+    transition: transform 0.3s ease, max-width 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .hero-photo img:hover {
     transform: scale(1.1);
-    transition: transform 0.3s ease;
 }
 
 .hero-text {
     flex: 1;
     padding: 20px;
+    transition: all 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .hero-text h2 {
     font-size: 48px;
     margin-bottom: 10px;
+    transition: font-size 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .hero-text p {
     font-size: 24px;
+    transition: font-size 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .scroll-arrow.scroll-down {
@@ -338,6 +344,90 @@ html {
     font-size: 24px; /* Adjust the size of the icon */
 }
 
+/* Responsive Styles */
+
+/* For tablets (768px to 1024px) */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 0 10px; /* Reduced padding for smaller screens */
+    }
+
+    .hero-content {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-photo {
+        justify-content: center; /* Center photo on smaller screens */
+        padding: 0; /* Remove padding */
+        margin-bottom: 20px; /* Space between photo and text */
+    }
+
+    .hero-photo img {
+        max-width: 80%; /* Adjust image size for tablets */
+    }
+
+    .hero-text {
+        padding: 10px; /* Reduced padding */
+    }
+
+    .hero-text h2 {
+        font-size: 36px; /* Smaller heading for tablets */
+    }
+
+    .hero-text p {
+        font-size: 18px; /* Smaller text for tablets */
+    }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 10px; /* Reduce padding for smaller screens */
+    }
+
+    .hero-content {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-photo {
+        justify-content: center; /* Center photo on smaller screens */
+        padding: 0; /* Remove padding */
+        margin-bottom: 20px; /* Space between photo and text */
+    }
+
+    .hero-photo img {
+        max-width: 90%; /* Reduce image size for mobile devices */
+    }
+
+    .hero-text {
+        padding: 10px; /* Reduce padding */
+    }
+
+    .hero-text h2 {
+        font-size: 32px; /* Smaller font size for mobile */
+    }
+
+    .hero-text p {
+        font-size: 16px; /* Smaller font size for mobile */
+    }
+
+    .scroll-arrow.scroll-down {
+        width: 40px; /* Smaller arrow button */
+        height: 40px;
+        bottom: 10px; /* Adjust position */
+        right: 10px;
+    }
+
+    .scroll-arrow.scroll-down i {
+        font-size: 20px; /* Smaller icon */
+    }
+}
 
 /* Section Titles */
 .section-title {
