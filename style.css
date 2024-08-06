@@ -318,7 +318,7 @@ html {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 0 20px; /* Padding for smaller screens */
+    padding: 20px; /* Add padding for better appearance */
 }
 
 .hero-content {
@@ -329,21 +329,24 @@ html {
     width: 100%;
     margin: 0 auto;
     position: relative;
-    transition: all 0.3s ease; /* Smooth transition for responsiveness */
+    flex-direction: row; /* Ensure row direction for larger screens */
 }
 
 .hero-photo {
     flex: 1;
     display: flex;
-    justify-content: flex-start; /* Align photo to the left */
+    justify-content: center; /* Center the photo */
     padding-right: 20px; /* Space between photo and text */
-    transition: all 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .hero-photo img {
-    max-width: 70%; /* Make the photo slightly smaller */
+    max-width: 100%; /* Adjust photo width for responsiveness */
     border-radius: 8px;
-    transition: transform 0.3s ease, max-width 0.3s ease; /* Smooth transition for responsiveness */
+    width: auto;
+    height: auto;
+    max-height: 400px; /* Limit the height for larger images */
+    object-fit: cover; /* Ensure image covers the area */
+    transition: transform 0.3s ease;
 }
 
 .hero-photo img:hover {
@@ -353,18 +356,102 @@ html {
 .hero-text {
     flex: 1;
     padding: 20px;
-    transition: all 0.3s ease; /* Smooth transition for responsiveness */
+    text-align: left;
 }
 
 .hero-text h2 {
     font-size: 48px;
     margin-bottom: 10px;
-    transition: font-size 0.3s ease; /* Smooth transition for responsiveness */
+    line-height: 1.2; /* Improve readability */
 }
 
 .hero-text p {
     font-size: 24px;
-    transition: font-size 0.3s ease; /* Smooth transition for responsiveness */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .hero-content {
+        flex-direction: column; /* Stack content vertically on tablets */
+        text-align: center; /* Center text */
+    }
+
+    .hero-photo {
+        justify-content: center; /* Center the photo */
+        padding-right: 0; /* Remove padding */
+        padding-bottom: 20px; /* Add space below the photo */
+    }
+
+    .hero-photo img {
+        max-width: 80%; /* Make the photo wider */
+        max-height: 300px; /* Adjust the height */
+    }
+
+    .hero-text h2 {
+        font-size: 36px; /* Smaller heading size */
+    }
+
+    .hero-text p {
+        font-size: 20px; /* Smaller paragraph size */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .hero-content {
+        flex-direction: column; /* Stack content vertically on smaller devices */
+    }
+
+    .hero-photo img {
+        max-width: 90%; /* Make the photo fill more space */
+        max-height: 250px; /* Further adjust the height */
+    }
+
+    .hero-text h2 {
+        font-size: 32px; /* Even smaller heading size */
+    }
+
+    .hero-text p {
+        font-size: 18px; /* Smaller paragraph size */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 10px; /* Minimal padding for mobile */
+    }
+
+    .hero-content {
+        text-align: center; /* Center-align content for small screens */
+    }
+
+    .hero-photo img {
+        max-width: 100%; /* Full width for small screens */
+        max-height: 200px; /* Even smaller height for compact view */
+    }
+
+    .hero-text h2 {
+        font-size: 28px; /* Smallest heading size */
+    }
+
+    .hero-text p {
+        font-size: 16px; /* Smallest paragraph size */
+    }
+
+    .scroll-arrow.scroll-down {
+        bottom: 10px; /* Adjust position for smaller screens */
+        right: 10px;
+        width: 40px; /* Smaller arrow button */
+        height: 40px;
+    }
+
+    .scroll-arrow.scroll-down i {
+        font-size: 20px; /* Smaller icon size */
+    }
 }
 
 .scroll-arrow.scroll-down {
