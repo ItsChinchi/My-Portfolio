@@ -8,7 +8,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* intro */
+/* Intro Screen */
 .intro-screen {
     position: fixed;
     top: 0;
@@ -23,21 +23,26 @@ html {
     z-index: 1000;
     animation: fadeOut 1s ease forwards 4s; /* Controls fade out duration */
     opacity: 1;
+    padding: 20px; /* Add padding for better spacing on small screens */
+    transition: padding 0.3s ease; /* Smooth transition for padding */
 }
 
 .intro-text {
     text-align: center;
     opacity: 0;
     animation: textAppear 1.5s ease forwards 1s; /* Controls text appearance timing */
+    transition: all 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .intro-text h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* Base font size */
     margin-bottom: 10px;
+    transition: font-size 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .intro-text p {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Base font size */
+    transition: font-size 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 @keyframes textAppear {
@@ -66,12 +71,57 @@ html {
     display: none;
     transition: opacity 0.5s ease;
 }
+
 /* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    transition: all 0.3s ease; /* Smooth transition for responsiveness */
 }
+
+/* Responsive Styles */
+
+/* For tablets (768px to 1024px) */
+@media (max-width: 1024px) {
+    .intro-screen {
+        padding: 15px; /* Reduce padding for tablets */
+    }
+
+    .intro-text h1 {
+        font-size: 2.5rem; /* Adjust heading size for tablets */
+    }
+
+    .intro-text p {
+        font-size: 1rem; /* Adjust paragraph size for tablets */
+    }
+
+    .container {
+        max-width: 100%; /* Utilize full width on tablets */
+        padding: 0 15px; /* Reduce container padding */
+    }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .intro-screen {
+        padding: 10px; /* Further reduce padding for mobile devices */
+    }
+
+    .intro-text h1 {
+        font-size: 2rem; /* Smaller heading for mobile */
+    }
+
+    .intro-text p {
+        font-size: 0.9rem; /* Smaller paragraph size for mobile */
+    }
+
+    .container {
+        max-width: 100%; /* Utilize full width on mobile */
+        padding: 0 10px; /* Further reduce container padding */
+    }
+}
+
 
 /* Navigation Bar */
 .navbar {
