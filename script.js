@@ -51,31 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
         navbar.style.transition = 'opacity 0.5s'; // Smooth transition
     });
 
-    // Contact Form Submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Email sending functionality using EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-                from_name: name,
-                from_email: email,
-                message: message,
-            }).then(() => {
-                alert('Your message has been sent successfully!');
-                contactForm.reset();
-            }).catch((error) => {
-                alert('An error occurred while sending your message. Please try again later.');
-                console.error('EmailJS Error:', error);
-            });
-        });
-    }
-
     // Portfolio scrolling
     function scrollLeft() {
         document.querySelector('.portfolio-container').scrollBy({
