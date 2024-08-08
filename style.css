@@ -72,14 +72,6 @@ html {
     transition: opacity 0.5s ease;
 }
 
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    transition: all 0.3s ease; /* Smooth transition for responsiveness */
-}
-
 /* Responsive Styles */
 
 /* For tablets (768px to 1024px) */
@@ -122,192 +114,189 @@ html {
     }
 }
 
-
-/* Navigation Bar */
-.navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    padding: 10px 40px; /* Increase padding */
+/* OVERLAY */
+.overlay {
+    z-index: 9;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensure it stays on top */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: background-color 0.3s ease, padding 0.3s ease; /* Smooth transition for background and padding */
-}
-.navbar.scrolled {
-    padding: 5px 40px; /* Reduce padding when scrolled */
-}
-.navbar.hidden {
-    opacity: 0; /* Hide the navbar */
-    transform: translateY(-100%); /* Slide it up */
-}
+    height: 100vh;
+    height: 100svh;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .overlay-slide-right {
+    transition: all 0.4s ease-in-out;
+    transform: translateX(0);
+  }
+  
+  .overlay-slide-left {
+    transition: all 0.8s ease-in-out;
+    transform: translateX(-100%);
+  }
 
-.navbar .container {
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%; /* Ensure full width */
-}
-
-.navbar .logo {
-    flex: 1; /* Allows the logo to take up space and push other content */
-}
-
-.navbar .logo img {
-    height: 50px; /* Adjust the height of your logo */
-    width: auto;
-}
-
-.nav-links {
+/* NAV MENU ITEMS */
+nav {
+    background-color: #333; /* Dark background for the nav */
+  }
+  
+  nav ul {
+    height: 100vh;
+    height: 100svh;
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
-    gap: 30px; /* Increase the spacing between links */
-}
-
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #fff;
-    transform: scale(1.05); /* Slightly increase the size */
-}
-
-.nav-links li {
-    display: flex;
-    align-items: center;
-}
-
-/* Style for "My Resume" */
-.nav-links li:last-child a {
-    display: inline-block;
-    padding: 8px 16px; /* Adjust padding as needed */
-    border: 1px solid #333333; /* Thin border */
-    border-radius: 4px; /* Slightly rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Black shadow */
-    color: #333333;
-    background-color: #ffffff; /* White background */
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-links li:last-child a:hover {
-    background-color: #333333; /* Dark background on hover */
-    color: #ffffff; /* White text on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-}
-    
-/* Responsive styles */
-@media (max-width: 768px) {
-    
-    .navbar {
-        padding: 10px 20px; /* Adjust padding for mobile */
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar .container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-links {
-        display: none; /* Hide links by default on mobile */
-        width: 100%;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-links.active {
-        display: flex; /* Show links when active */
-    }
-
-    .nav-links a {
-        padding: 10px; /* Adjust padding for better touch targets */
-        text-align: center;
-    }
-
-/* Mobile menu toggle */
-.menu-btn {
-    display: block;
-    font-size: 24px;
-    color: #ffffff; /* Icon color */
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
-}
-
-.menu-btn.clicked {
-    color: #ffffff; /* Change icon color */
-    transform: rotate(45deg); /* Rotate the icon */
-}
-
-/* FontAwesome icon styles */
-.menu-btn:before {
-    content: "\f0c9"; /* Default icon (bars) */
-    font-family: 'FontAwesome';
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
-}
-
-.menu-btn.clicked:before {
-    content: "\f00d"; /* Change to "X" icon */
-}
-
-/* Mobile nav links */
-.nav-links {
-    display: none; /* Hide links by default on mobile */
-    width: 100%;
     flex-direction: column;
-    gap: 10px;
-    background-color: #333333; /* Dark background for visibility */
-    padding: 10px 0; /* Add some padding for spacing */
-}
-
-.nav-links.active {
-    display: flex; /* Show links when active */
-}
-
-/* Ensure text color is visible */
-.nav-links a {
-    color: #000000; /* White text color */
-    padding: 10px 16px;
+    align-items: center; /* Center items horizontally */
+  }
+  
+  nav ul li {
+    width: 100%; /* Make list items full-width */
+    height: 20%;
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+  }
+  
+  nav li:nth-of-type(1) {
+    background-color: #4a4a4a; /* Updated color */
+  }
+  
+  nav li:nth-of-type(2) {
+    background-color: #6a3f2e; /* Updated color */
+  }
+  
+  nav li:nth-of-type(3) {
+    background-color: #4c6d5b; /* Updated color */
+  }
+  
+  nav li:nth-of-type(4) {
+    background-color: #736b4e; /* Updated color */
+  }
+  
+  nav li a {
+    color: #fff; /* White text color */
     text-decoration: none;
-    font-weight: 700;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
+    letter-spacing: 0.3rem; /* Slightly reduced spacing */
+    font-size: 1.8rem; /* Slightly smaller font size */
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  nav li a:hover,
+  nav li a:active {
+    transform: scale(1.1); /* Slightly reduced scale */
+    color: #ffcc00; /* Change text color on hover */
+  }
+  
+  /***********************/
+  /* NAV SLIDE IN ANIMATION */
+  /***********************/
+  
+  .slide-in-1 {
+    animation: slide-in 0.5s ease-in-out 0.2s both;
+  }
+  
+  .slide-in-2 {
+    animation: slide-in 0.5s ease-in-out 0.4s both;
+  }
+  
+  .slide-in-3 {
+    animation: slide-in 0.5s ease-in-out 0.6s both;
+  }
+  
+  .slide-in-4 {
+    animation: slide-in 0.5s ease-in-out 0.8s both;
+  }
+ 
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0; /* Fade in effect */
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1; /* Fully visible */
+    }
+  }
+  
+  /***********************/
+  /* NAV SLIDE OUT ANIMATION */
+  /***********************/
+  
+  .slide-out-1 {
+    animation: slide-out 0.4s ease-in-out 0.5s both;
+  }
+  
+  .slide-out-2 {
+    animation: slide-out 0.4s ease-in-out 0.4s both;
+  }
+  
+  .slide-out-3 {
+    animation: slide-out 0.4s ease-in-out 0.3s both;
+  }
+  
+  .slide-out-4 {
+    animation: slide-out 0.4s ease-in-out 0.2s both;
+  }
+ 
+  
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+      opacity: 1; /* Fully visible */
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0; /* Fade out effect */
+    }
+  }
+  
 
-.nav-links a:hover {
-    color: #000000; /* White text on hover */
-    transform: scale(1.05); /* Slightly increase the size */
-}
+/* HAMBURGER MENU ANIMATION */
+/***********************/
 
-/* Style for "My Resume" */
-.nav-links li:last-child a {
-    border: 1px solid #000000; /* White border */
-    background-color: #ffffff; /* Dark background */
-    color: #000000; /* White text color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Shadow */
-}
+.hamburger-menu {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    z-index: 10;
+    cursor: pointer;
+  }
+  
+  .menu-bar1,
+  .menu-bar2,
+  .menu-bar3 {
+    width: 3.5rem;
+    height: 0.2rem;
+    background-color: #fff;
+    margin: 0.8rem 0;
+    transition: 0.4s;
+  }
+  
+  .menu-bar2 {
+    width: 2rem;
+    margin-left: auto;
+  }
+  
+  /* ROTATE FIRST BAR */
+  .active .menu-bar1 {
+    transform: rotate(-45deg) translate(-0.7rem, 0.8rem);
+  }
+  
+  /* FADE OUT SECOND BAR */
+  .active .menu-bar2 {
+    opacity: 0;
+  }
+  
+  /* ROTATE LAST BAR */
+  .active .menu-bar3 {
+    transform: rotate(45deg) translate(-0.6rem, -0.8rem);
+  }
 
-.nav-links li:last-child a:hover {
-    background-color: #333333; /* White background on hover */
-    color: #ffffff; /* Dark text color on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-}
-
-}
-
+  
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -846,70 +835,6 @@ html {
 
 .social-links a:hover {
     color: #007bff;
-}
-
-/* Project Details Page */
-.project-details {
-    padding: 80px 0;
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-.project-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
-.project-details h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
-.gallery img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-.btn-secondary {
-    display: inline-block;
-    background-color: #333333;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.btn-secondary:hover {
-    background-color: #555555;
-    transform: scale(1.05);
 }
 
 /* Scroll Up Arrow */

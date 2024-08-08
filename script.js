@@ -1,15 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Initialize AOS (Animate On Scroll)
     AOS.init({
         duration: 1000, // Duration of animation in milliseconds
-    });
-
-    // Toggle button
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuBtn.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        menuBtn.classList.toggle('clicked');
     });
 
     // Contact items scroll behavior
@@ -27,44 +19,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function checkElements() {
         contactItems.forEach((item) => {
-            if (isElementInViewport(item)) {
-                item.style.opacity = 1;
-                item.style.transform = "translateY(0)";
-            } else {
-                item.style.opacity = 0;
-                item.style.transform = "translateY(20px)"; // Adjust as needed
-            }
+            item.style.opacity = isElementInViewport(item) ? 1 : 0;
+            item.style.transform = isElementInViewport(item) ? "translateY(0)" : "translateY(20px)";
         });
     }
 
-    window.addEventListener("scroll", checkElements);
+    window.addEventListener("scroll", function() {
+        checkElements();
+
+        // Show/Hide scroll-up button
+        const scrollUpButton = document.getElementById('scrollUp');
+        if (scrollUpButton) {
+            if (window.scrollY > 300) { // Adjust the scroll position to when the button should appear
+                scrollUpButton.classList.add('show');
+            } else {
+                scrollUpButton.classList.remove('show');
+            }
+        }
+    });
+
     window.addEventListener("resize", checkElements);
     checkElements(); // Initial check
 
-    // Navbar fade effect
-    const navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const maxScroll = 200; // Maximum scroll value where navbar is fully faded out
-        const opacity = Math.max(1 - scrollTop / maxScroll, 0);
-        navbar.style.opacity = opacity;
-        navbar.style.transition = 'opacity 0.5s'; // Smooth transition
-    });
-
-    // Portfolio scrolling
-    function scrollLeft() {
-        document.querySelector('.portfolio-container').scrollBy({
-            left: -300,
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
             behavior: 'smooth'
         });
     }
 
-    function scrollRight() {
-        document.querySelector('.portfolio-container').scrollBy({
-            left: 300,
-            behavior: 'smooth'
-        });
+    // Attach scrollToTop to the scroll-up button
+    const scrollUpButton = document.getElementById('scrollUp');
+    if (scrollUpButton) {
+        scrollUpButton.addEventListener('click', scrollToTop);
+    }
+
+    // Portfolio scrolling
+    function scrollGallery(direction) {
+        const gallery = document.querySelector('.gallery');
+        if (gallery) {
+            gallery.scrollBy({
+                left: direction * 300, // Adjust size to fit your design
+                behavior: 'smooth'
+            });
+        }
     }
 
     // Arrow function for hero section
@@ -81,52 +80,44 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollArrowButton.addEventListener('click', scrollToNextSection);
     }
 
-    function scrollGallery(direction) {
-        const gallery = document.querySelector('.gallery');
-        const scrollAmount = 300; // Adjust size to fit your design
-        gallery.scrollBy({
-            left: direction * scrollAmount,
-            behavior: 'smooth'
+    // Hamburger Menu and Navigation
+    const hamburgerMenu = document.querySelector("#hamburger-menu");
+    const overlay = document.querySelector("#overlay");
+    const navItems = Array.from(document.querySelectorAll("#nav-1, #nav-2, #nav-3, #nav-4, #nav-5"));
+
+    function navAnimation(val1, val2) {
+        navItems.forEach((nav, i) => {
+            nav.classList.replace(`slide-${val1}-${i + 1}`, `slide-${val2}-${i + 1}`);
         });
     }
 
-    // Toggle navigation menu
-    function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
-    }
+    function toggleNav() {
+        // Toggle: Hamburger Open/Close
+        hamburgerMenu.classList.toggle("active");
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+        // Toggle: Menu Active
+        overlay.classList.toggle("overlay-active");
+
+        if (overlay.classList.contains("overlay-active")) {
+            // Animate In - Overlay
+            overlay.classList.replace("overlay-slide-left", "overlay-slide-right");
+
+            // Animate In - Nav Items
+            navAnimation("out", "in");
         } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+            // Animate Out - Overlay
+            overlay.classList.replace("overlay-slide-right", "overlay-slide-left");
 
-    // Show or hide the scroll up arrow based on scroll position
-    window.addEventListener('scroll', () => {
-        const scrollUp = document.getElementById('scrollUp');
-        if (window.scrollY > 200) {
-            scrollUp.classList.add('show');
-        } else {
-            scrollUp.classList.remove('show');
+            // Animate Out - Nav Items
+            navAnimation("in", "out");
         }
-    });
-
-    // Scroll to the top of the page when the arrow is clicked
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
     }
 
-    // Attach scrollToTop to the scroll up button
-    const scrollUpButton = document.getElementById('scrollUp');
-    if (scrollUpButton) {
-        scrollUpButton.addEventListener('click', scrollToTop);
+    // Event Listeners
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener("click", toggleNav);
     }
+    navItems.forEach((nav) => {
+        nav.addEventListener("click", toggleNav);
+    });
 });

@@ -12,26 +12,32 @@
     <link rel="icon" href="photos/logo/file (1).png" type="image/x-icon">
 </head>
 <body>
-    <!-- nav bar -->
-    <div class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="photos/logo/file (1).png" alt="Logo">
-            </div>
-            <div class="btn">
-                <i class="fas fa-bars menu-btn"></i>
-            </div>
-            <ul class="nav-links">
-                <!-- Example nav links -->
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="https://drive.google.com/file/d/1GYZ7nJ5QnmYtitnyHePlz4dZ1GfgSOXd/view?usp=sharing" target="_blank">My Resume</a></li>
-            </ul>
-            </ul>
-        </div>
+
+    <!-- MENU OVERLAY -->
+<div class="overlay overlay-slide-left" id="overlay">
+    <nav>
+        <ul>
+          <li id="nav-1" class="slide-out-1 center">
+            <a href="#home" class="center">Home</a>
+          </li>
+          <li id="nav-2" class="slide-out-2 center">
+            <a href="#about" class="center">About</a>
+          </li>
+          <li id="nav-4" class="slide-out-3 center">
+            <a href="#portfolio" class="center">Projects</a>
+          </li>
+          <li id="nav-5" class="slide-out-4 center">
+            <a href="#contact" class="center">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+   <!-- HAMBURGER MENU -->
+<div class="hamburger-menu" id="hamburger-menu">
+  <div class="menu-bar1"></div>
+  <div class="menu-bar2"></div>
+  <div class="menu-bar3"></div>
+</div>
 
     <!-- intro -->
     <div class="intro-screen">
@@ -41,22 +47,22 @@
         </div>
     </div>
 
-    <!-- hero -->
-    <header class="hero" id="home" data-aos="fade-in">
-        <div class="hero-content">
-            <div class="hero-photo">
-                <img src="photos/me.png" alt="Your Photo">
-            </div>
-            <div class="hero-text">
-                <h2>Who am I?</h2>
-                <p>My name is Ahmed, and I am a dedicated specialist in the fields of UI/UX Design, Game Development, and Frontend Development.
-                    I am passionate about creating innovative and user-centric solutions that enhance digital experiences across web, mobile, and gaming platforms.</p>
-            </div>
+    <!-- Hero -->
+<header class="hero" id="home" data-aos="fade-in">
+    <div class="hero-content">
+        <div class="hero-photo">
+            <img src="photos/me.png" alt="Your Photo" aria-label="Photo of Ahmed">
         </div>
-        <button class="scroll-arrow scroll-down" onclick="scrollToNextSection()">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-    </header>
+        <div class="hero-text">
+            <h2>Who am I?</h2>
+            <p>My name is Ahmed, and I am a dedicated specialist in the fields of UI/UX Design, Game Development, and Frontend Development.
+                I am passionate about creating innovative and user-centric solutions that enhance digital experiences across web, mobile, and gaming platforms.</p>
+        </div>
+    </div>
+    <button class="scroll-arrow scroll-down" aria-label="Scroll to Next Section" onclick="scrollToNextSection()">
+        <i class="fas fa-chevron-down"></i>
+    </button>
+</header>
 
     <!-- about -->
     <section class="about" id="about">
@@ -126,12 +132,12 @@
         </ul>
     </footer>
 
-    <!-- Scroll Up Arrow -->
-    <div class="scroll-up" id="scrollUp" onclick="scrollToTop()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 19V5M5 12L12 5L19 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
+   <!-- Scroll Up Arrow -->
+<div class="scroll-up" id="scrollUp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 19V5M5 12L12 5L19 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</div>
 
     <script src="script.js"></script>
     <script>
