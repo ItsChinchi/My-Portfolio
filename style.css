@@ -816,7 +816,7 @@ nav {
 .footer {
     background-color: #333333;
     color: #ffffff;
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -829,7 +829,7 @@ nav {
     list-style: none;
     display: flex;
     justify-content: center;
-    margin: 10px 0 0;
+    margin: 20px 0 0;
     padding: 0;
 }
 
