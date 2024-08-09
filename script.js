@@ -74,16 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Attach scrollToNextSection to the scroll arrow button
-    const scrollArrowButton = document.querySelector('.scroll-arrow');
-    if (scrollArrowButton) {
-        scrollArrowButton.addEventListener('click', scrollToNextSection);
-    }
-
+   
     // Hamburger Menu and Navigation
     const hamburgerMenu = document.querySelector("#hamburger-menu");
     const overlay = document.querySelector("#overlay");
-    const navItems = Array.from(document.querySelectorAll("#nav-1, #nav-2, #nav-3, #nav-4, #nav-5"));
+    const navItems = Array.from(document.querySelectorAll("#nav-1, #nav-2, #nav-3, #nav-4, #nav-5, #nav-6" ));
 
     function navAnimation(val1, val2) {
         navItems.forEach((nav, i) => {
@@ -120,4 +115,58 @@ document.addEventListener("DOMContentLoaded", function () {
     navItems.forEach((nav) => {
         nav.addEventListener("click", toggleNav);
     });
+
+    // Smooth scroll to "About Me" section
+    const learnMoreButton = document.querySelector(".learn-more-button");
+    if (learnMoreButton) {
+        learnMoreButton.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default anchor click behavior
+            const targetSection = document.querySelector("#about");
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop, // Scroll to the position of the About Me section
+                    behavior: 'smooth' // Smooth scrolling
+                });
+            }
+        });
+    }
+
+    //swap between skills
+    const skillsContainer = document.querySelector('.skills-container');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    skillsContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        skillsContainer.classList.add('active');
+        startX = e.pageX - skillsContainer.offsetLeft;
+        scrollLeft = skillsContainer.scrollLeft;
+    });
+    
+    skillsContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        skillsContainer.classList.remove('active');
+    });
+    
+    skillsContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        skillsContainer.classList.remove('active');
+    });
+    
+    skillsContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - skillsContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Adjust scroll speed
+        skillsContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    skillsContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        skillsContainer.scrollLeft += e.deltaY;
+        
+    });
+
 });
