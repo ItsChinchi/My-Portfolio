@@ -882,19 +882,95 @@ nav li a:hover, nav li a:active {
 .footer {
     background-color: #333333;
     color: #ffffff;
-    padding: 40px 0;
-    text-align: center;
+    padding: 40px 20px;
+    text-align: left;
 }
 
-.footer p {
-    margin: 0; font-size: 14px;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.get-in-touch {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.get-in-touch h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #f04e30;
+}
+
+.get-in-touch .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.get-in-touch .form-group input,
+.get-in-touch .form-group textarea,
+.get-in-touch .form-group select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.get-in-touch .form-group input::placeholder,
+.get-in-touch .form-group textarea::placeholder {
+    color: #ccc;
+}
+
+.get-in-touch .form-group textarea {
+    min-height: 120px;
+}
+
+.get-in-touch .form-group input:focus,
+.get-in-touch .form-group textarea:focus,
+.get-in-touch .form-group select:focus {
+    background-color: #444;
+    border-color: #f04e30;
+    outline: none;
+}
+
+.get-in-touch button {
+    padding: 14px;
+    background-color: #f04e30;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.get-in-touch button:hover {
+    background-color: #d03e20;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .social-links {
     list-style: none;
     display: flex;
     justify-content: center;
-    margin: 20px 0 0;
+    margin: 0 0 20px 0;
     padding: 0;
 }
 
@@ -904,12 +980,18 @@ nav li a:hover, nav li a:active {
 
 .social-links a {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 24px;
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
     color: #e94d3f;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
 }
 
 /* Scroll Up Arrow */
